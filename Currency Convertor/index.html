@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Day 13 — Currency Converter</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Tip: serve this folder over HTTP (Live Server / python -m http.server) — otherwise browser fetch may be blocked. -->
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="title">
+    <header>
+      <div>
+        <h1 id="title">Day 13: Currency Converter</h1>
+        <p class="lead">Tries API first. Falls back to a manual rate & built-in list if the API is unavailable.</p>
+      </div>
+    </header>
+
+    <section class="converter">
+      <div class="row inputs">
+        <label class="field">
+          Amount
+          <input id="amount" type="number" min="0" step="any" value="1" />
+        </label>
+
+        <label class="field">
+          From
+          <select id="fromCurrency" aria-label="From currency"></select>
+        </label>
+
+        <label class="field">
+          To
+          <select id="toCurrency" aria-label="To currency"></select>
+        </label>
+
+        <div class="actions">
+          <button id="swapBtn" class="btn secondary">Swap</button>
+          <button id="convertBtn" class="btn">Convert</button>
+        </div>
+      </div>
+
+      <div id="result" class="result" aria-live="polite">
+        <div class="muted">Result will appear here.</div>
+      </div>
+
+      <div id="meta" class="meta muted"></div>
+      <div id="error" class="error" role="alert" aria-live="assertive"></div>
+
+      <div class="manual">
+        <label class="small">Manual rate (if API fails):</label>
+        <input id="manualRate" placeholder="e.g. 0.01234" />
+        <button id="applyManual" class="btn secondary">Apply rate</button>
+        <button id="testApi" class="btn secondary">Test API</button>
+      </div>
+
+      <div class="footer-note small">If you open the file via <code>file://</code> the browser may block requests. Serve with Live Server or <code>python -m http.server</code>.</div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
